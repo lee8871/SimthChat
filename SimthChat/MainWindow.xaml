@@ -1,0 +1,21 @@
+﻿<Window x:Class="SimthChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimthChat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="558" Width="682" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid Margin="1,0,-1,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="551*"/>
+                    <ColumnDefinition Width="129*"/>
+                </Grid.ColumnDefinitions>
+                <local:test1 ClipToBounds="True"/>
+                <TextBox Grid.Column="1" TextWrapping="Wrap" Text="TextBox"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
