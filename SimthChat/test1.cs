@@ -83,12 +83,11 @@ namespace SimthChat {
 
 			//	drawingContext.PushOpacityMask(new DrawingBrush(new GeometryDrawing(new RadialGradientBrush(Colors.Black, Colors.Transparent), null, new EllipseGeometry(new Point(0, 0), 1, 1))));
 
-			var dg = new DrawingGroup();//这个是蒙版
-			dg.Transform = ts;
-			dg.Children.Add(new GeometryDrawing(Brushes.Black, base_pen, new EllipseGeometry(new Point(0, 0), 200, 100)));
-			dg.Children.Add(new GeometryDrawing(Brushes.Transparent, base_pen, new EllipseGeometry(new Point(0, 0), 1000, 1000)));
-			//drawingContext.DrawDrawing(dg);//当我们绘制蒙版的时候
-			drawingContext.PushOpacityMask(new DrawingBrush(dg));
+			var mask_dg = new DrawingGroup();
+			mask_dg.Children.Add(new GeometryDrawing(Brushes.Black, base_pen, new EllipseGeometry(new Point(0, 0), 500, 500)));
+			mask_dg.Children.Add(new GeometryDrawing(Brushes.Transparent, base_pen, new EllipseGeometry(new Point(0, 0), 10000, 10000)));
+			//drawingContext.DrawDrawing(mask_dg);
+			drawingContext.PushOpacityMask(new DrawingBrush(mask_dg));
 			foreach (var r in er_circle_r_table) {
 				drawingContext.DrawGeometry(Brushes.Transparent, R_pen, new EllipseGeometry(new Point(r / (1 + r), 0), 1 / (1 + r), 1 / (1 + r)));
 				drawingContext.DrawGeometry(Brushes.Transparent, G_pen, new EllipseGeometry(new Point(-r / (1 + r), 0), 1 / (1 + r), 1 / (1 + r)));
